@@ -1,8 +1,8 @@
 class Array(object):
     """
-    数组
+    实现定长的 数组 ADT，省略了边界检查等
     """
-    def __init__(self, size=10):
+    def __init__(self, size=32):
         self._size = size
         self._items = [None] * size
     
@@ -15,9 +15,9 @@ class Array(object):
     def __len__(self):
         return self._size
     
-    def clear(self):
+    def clear(self, value=None):
         for i in range(len(self._items)):
-            self._items[i] = None
+            self._items[i] = value
     
     def __iter__(self):
         yield from self._items
