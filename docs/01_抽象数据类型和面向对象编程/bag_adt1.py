@@ -17,8 +17,7 @@ class Bag(object):
         return len(self._items)
 
     def __iter__(self):
-        yield self._items
-
+        yield from self._items
 
 
 def test_bag():
@@ -27,8 +26,12 @@ def test_bag():
     bag.add(2)
     bag.add(3)
     assert(len(bag)==3)
+
     bag.remove(2)
     assert(len(bag)==2)
+
+    value = [x for x in bag]
+    assert(value == [1, 3])
 
 
 if __name__ == "__main__":
